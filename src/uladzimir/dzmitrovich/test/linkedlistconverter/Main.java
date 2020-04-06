@@ -4,6 +4,15 @@ import sun.plugin.dom.exception.InvalidStateException;
 
 public class Main {
 
+    /***
+     * main method contains 3 tests for  {@link #convertLinkedLists} method.
+     * 1) empty list
+     * 2) short list with odd number of elements
+     * 3) long list with even number of elements
+     *
+     * @see #convertLinkedLists(Node)
+     * @param args
+     */
     public static void main(String[] args) {
         // empty list:
         Node<Integer> head = new Node<>();
@@ -78,13 +87,13 @@ public class Main {
         return new Node[]{oddHead, evenHead};
     }
 
-    private static <T> Node<T> moveItem(Node<T> current, Node<T> evenCurrent) {
-        if (evenCurrent == null) {
-            current.setNext(null);//end of new array
-            return current;
+    private static <T> Node<T> moveItem(Node<T> sourceCurrent, Node<T> targetCurrent) {
+        if (targetCurrent == null) {
+            sourceCurrent.setNext(null);//end of new array
+            return sourceCurrent;
         } else {
-            current.setNext(evenCurrent);
-            return current;
+            sourceCurrent.setNext(targetCurrent);
+            return sourceCurrent;
         }
     }
 }
